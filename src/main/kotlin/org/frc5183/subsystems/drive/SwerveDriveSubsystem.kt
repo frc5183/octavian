@@ -15,6 +15,7 @@ import org.frc5183.constants.swerve.SwervePIDConstants
 import org.frc5183.subsystems.drive.io.SwerveDriveIO
 import org.frc5183.subsystems.vision.VisionSubsystem
 import org.littletonrobotics.junction.Logger
+import swervelib.telemetry.SwerveDriveTelemetry
 import kotlin.jvm.optionals.getOrNull
 
 class SwerveDriveSubsystem(
@@ -30,6 +31,9 @@ class SwerveDriveSubsystem(
         get() = io.robotVelocity
 
     init {
+        SwerveDriveTelemetry.verbosity = LoggingConstants.SWERVE_VERBOSITY
+
+        /*
         AutoBuilder.configure(
             { pose },
             this::resetPose,
@@ -52,6 +56,8 @@ class SwerveDriveSubsystem(
             this,
             vision,
         )
+
+         */
 
         // https://pathplanner.dev/pplib-follow-a-single-path.html#java-warmup
         PathfindingCommand.warmupCommand().schedule()

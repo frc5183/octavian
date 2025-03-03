@@ -14,25 +14,25 @@ object BackLeftSwerveModuleConstants : SwerveModuleConstants {
         = "backleft"
 
     override val LOCATION: Translation2d
-        = Translation2d(Units.Inches.of(-16.1875), Units.Inches.of(13.0625))
+        = Translation2d(Units.Inches.of(12.25), Units.Inches.of(-15.0))
 
     override val ABSOLUTE_ENCODER: SwerveAbsoluteEncoder
-        = CANCoderSwerve(32)
+        = CANCoderSwerve(16)
 
     override val ABSOLUTE_ENCODER_OFFSET: Angle
-        = Units.Degrees.of(0.0)
+        = Units.Degrees.of(299.268)
 
     override val ABSOLUTE_ENCODER_INVERTED: Boolean
         = false
 
     override val DRIVE_MOTOR: SwerveMotor
-        = TalonFXSwerve(20, true, PhysicalConstants.DRIVE_MOTOR_TYPE)
+        = TalonFXSwerve(17, true, PhysicalConstants.DRIVE_MOTOR_TYPE)
 
     override val DRIVE_MOTOR_INVERTED: Boolean
         = false
 
     override val ANGLE_MOTOR: SwerveMotor
-        = TalonFXSwerve(19, false, PhysicalConstants.ANGLE_MOTOR_TYPE)
+        = TalonFXSwerve(18, false, PhysicalConstants.ANGLE_MOTOR_TYPE)
 
     override val ANGLE_MOTOR_INVERTED: Boolean
         = false

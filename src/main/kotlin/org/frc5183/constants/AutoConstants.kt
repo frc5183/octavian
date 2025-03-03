@@ -11,6 +11,12 @@ import org.frc5183.constants.swerve.modules.FrontRightSwerveModuleConstants
 
 object AutoConstants {
     /**
+     * The speed limit factor to apply to the robot's translation and rotation speeds/accelerations when driving autonomously.
+     */
+    // todo: should we find a way to use this with curves? it might confuse pathplanner, but a basic limiter curve might work fine.
+    const val SPEED_LIMIT_FACTOR = 0.75
+
+    /**
      * The [RobotConfig] to be used in a [com.pathplanner.lib.auto.AutoBuilder].
      */
     val ROBOT_CONFIG =
@@ -36,10 +42,10 @@ object AutoConstants {
      */
     val PATH_CONSTRAINTS =
         PathConstraints(
-            PhysicalConstants.MAX_SPEED,
-            PhysicalConstants.MAX_ACCELERATION,
-            PhysicalConstants.MAX_ANGULAR_VELOCITY,
-            PhysicalConstants.MAX_ANGULAR_ACCELERATION,
+            PhysicalConstants.MAX_SPEED * SPEED_LIMIT_FACTOR,
+            PhysicalConstants.MAX_ACCELERATION * SPEED_LIMIT_FACTOR,
+            PhysicalConstants.MAX_ANGULAR_VELOCITY * SPEED_LIMIT_FACTOR,
+            PhysicalConstants.MAX_ANGULAR_ACCELERATION * SPEED_LIMIT_FACTOR,
             PhysicalConstants.OPTIMAL_VOLTAGE
         )
 }
