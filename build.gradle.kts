@@ -12,7 +12,7 @@ import java.io.File
 plugins {
     java
     idea
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "2.1.10"
 
     id("edu.wpi.first.GradleRIO") version "2025.3.1"
     id("com.peterabeles.gversion") version "1.10.3"
