@@ -39,6 +39,8 @@ deploy {
             team = project.frc.teamNumber
             debug = project.frc.getDebugOrDefault(false)
             artifacts.create("frcJava", FRCJavaArtifact::class.java) {
+                jvmArgs.add("-XX:+HeapDumpOnOutOfMemoryError")
+                jvmArgs.add("-XX:HeapDumpPath=\"/U/heap/dump.hprof\"")
             }
             artifacts.create("frcStaticFileDeploy", FileTreeArtifact::class.java) {
                 files = project.fileTree("src/main/deploy")

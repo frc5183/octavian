@@ -10,6 +10,7 @@ import org.frc5183.hardware.vision.Camera
  * Device IDs connected to the robot.
  */
 object DeviceConstants {
+    /*
     val FRONT_CAMERA: Camera =
         Camera(
             "Front",
@@ -24,5 +25,7 @@ object DeviceConstants {
             VecBuilder.fill(4.0, 4.0, 8.0),
             VecBuilder.fill(0.5, 0.5, 1.0),
         )
+
+     */
     val IMU_PORT: NavXComType = NavXComType.kMXP_SPI
 }

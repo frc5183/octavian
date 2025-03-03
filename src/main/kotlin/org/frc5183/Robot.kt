@@ -1,12 +1,20 @@
 package org.frc5183
 
 import com.pathplanner.lib.commands.PathPlannerAuto
+import com.pathplanner.lib.path.GoalEndState
+import com.pathplanner.lib.path.PathConstraints
+import com.pathplanner.lib.path.PathPlannerPath
+import com.pathplanner.lib.pathfinding.Pathfinder
 import com.pathplanner.lib.pathfinding.Pathfinding
 import edu.wpi.first.hal.FRCNetComm.tInstances
 import edu.wpi.first.hal.FRCNetComm.tResourceType
 import edu.wpi.first.hal.HAL
+import edu.wpi.first.math.Pair
 import edu.wpi.first.math.geometry.Pose2d
 import edu.wpi.first.math.geometry.Rotation2d
+import edu.wpi.first.math.geometry.Translation2d
+import edu.wpi.first.math.kinematics.ChassisSpeeds
+import edu.wpi.first.units.Units
 import edu.wpi.first.wpilibj.Threads
 import edu.wpi.first.wpilibj.Timer
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard
@@ -14,10 +22,8 @@ import edu.wpi.first.wpilibj.util.WPILibVersion
 import edu.wpi.first.wpilibj2.command.Command
 import edu.wpi.first.wpilibj2.command.CommandScheduler
 import org.frc5183.commands.drive.DriveToPose2d
-import org.frc5183.constants.Config
-import org.frc5183.constants.Controls
-import org.frc5183.constants.DeviceConstants
-import org.frc5183.constants.State
+import org.frc5183.constants.*
+import org.frc5183.math.auto.pathfinding.DummyPathfinder
 import org.frc5183.math.auto.pathfinding.LocalADStarAK
 import org.frc5183.subsystems.drive.SwerveDriveSubsystem
 import org.frc5183.subsystems.drive.io.RealSwerveDriveIO
@@ -116,20 +122,21 @@ object Robot : LoggedRobot() {
             }
         }
 
+
+        if (State.mode != State.Mode.REAL) Logger.start() // todo: we don't have enough RAM to log on the RIO v1.0
+
         // Set the pathfinder to use the LocalADStarAK pathfinder so that
         //  we can use the AdvantageKit replay logging.
-        Pathfinding.setPathfinder(LocalADStarAK())
-
-        Logger.start()
+        Pathfinding.setPathfinder(DummyPathfinder("Example Path.path"))
 
         vision =
             VisionSubsystem(
                 if (State.mode ==
                     State.Mode.REAL
                 ) {
-                    RealVisionIO(listOf(DeviceConstants.FRONT_CAMERA, DeviceConstants.BACK_CAMERA))
+                    RealVisionIO(listOf())
                 } else {
-                    SimulatedVisionIO(listOf(DeviceConstants.FRONT_CAMERA, DeviceConstants.BACK_CAMERA))
+                    SimulatedVisionIO(listOf())
                 },
             )
 
@@ -142,9 +149,7 @@ object Robot : LoggedRobot() {
 
         SmartDashboard.putData("Auto choices", autoModeChooser.sendableChooser)
 
-        // todo debug sets the pose2d to into the field in sim
-        //drive.resetPose(Pose2d(3.0, 2.0, Rotation2d(0.0, 0.0)))
-
+        // todo: debug
         CommandScheduler.getInstance().onCommandInitialize {
             println("Command initialized: ${it.name}")
         }
@@ -162,6 +167,7 @@ object Robot : LoggedRobot() {
         CommandScheduler.getInstance().onCommandInterrupt { it: Command ->
             println("Command interrupted: ${it.name}")
         }
+        // end todo
     }
 
     override fun robotPeriodic() {
@@ -214,6 +220,9 @@ object Robot : LoggedRobot() {
     override fun teleopInit() {
         CommandScheduler.getInstance().cancelAll()
         Controls.teleopInit(drive, vision) // Register all teleop controls.
+
+        // todo debug sets the pose2d to into the field in sim
+        drive.resetPose(Pose2d(3.0, 2.0, Rotation2d(0.0, 0.0)))
     }
 
     /** This method is called periodically during operator control.  */
@@ -224,6 +233,7 @@ object Robot : LoggedRobot() {
     /** This method is called once when the robot is disabled.  */
     override fun disabledInit() {
         CommandScheduler.getInstance().cancelAll()
+
         drive.setMotorBrake(true)
         brakeTimer.reset()
         brakeTimer.start()

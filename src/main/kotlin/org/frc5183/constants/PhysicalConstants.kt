@@ -8,7 +8,7 @@ object PhysicalConstants {
     /**
      * The [Mass] of the robot.
      */
-    val MASS: Mass = Units.Pounds.of(110.2311)
+    val MASS: Mass = Units.Pounds.of(80.0) // todo: this was taken before the robot was fully built
 
     /**
      * The [MomentOfInertia] of the robot.
@@ -16,26 +16,26 @@ object PhysicalConstants {
     val MOI: MomentOfInertia = Units.KilogramSquareMeters.of(6.883)
 
     // <editor-fold desc="Maximum Constraints">
-
+    // todo: all constraints
     /**
      * The maximum [LinearVelocity] of the robot.
      */
-    val MAX_SPEED: LinearVelocity = Units.MetersPerSecond.of(3.0)
+    val MAX_SPEED: LinearVelocity = Units.MetersPerSecond.of(5.0)
 
     /**
      * The maximum [LinearAcceleration] of the robot.
      */
-    val MAX_ACCELERATION: LinearAcceleration = Units.MetersPerSecondPerSecond.of(3.0)
+    val MAX_ACCELERATION: LinearAcceleration = Units.MetersPerSecondPerSecond.of(8.0)
 
     /**
      * The maximum [AngularVelocity] of the robot.
      */
-    val MAX_ANGULAR_VELOCITY: AngularVelocity = Units.RadiansPerSecond.of(180.0)
+    val MAX_ANGULAR_VELOCITY: AngularVelocity = Units.DegreesPerSecond.of(180.0)
 
     /**
      * The maximum [AngularAcceleration] of the robot.
      */
-    val MAX_ANGULAR_ACCELERATION: AngularAcceleration = Units.RadiansPerSecondPerSecond.of(360.0)
+    val MAX_ANGULAR_ACCELERATION: AngularAcceleration = Units.DegreesPerSecondPerSecond.of(360.0)
 
     /**
      * A measure of [Voltage] over [Time] the swerve module's drive motor can ramp at.
@@ -55,12 +55,12 @@ object PhysicalConstants {
     /**
      * The type of [DCMotor] used for each swerve module's drive motor.
      */
-    val DRIVE_MOTOR_TYPE: DCMotor = DCMotor.getFalcon500(1)
+    val DRIVE_MOTOR_TYPE: DCMotor = DCMotor.getKrakenX60(1)
 
     /**
      * The type of [DCMotor] used for each swerve module's angle motor.
      */
-    val ANGLE_MOTOR_TYPE: DCMotor = DCMotor.getFalcon500(1)
+    val ANGLE_MOTOR_TYPE: DCMotor = DCMotor.getKrakenX60(1)
 
     /**
      * The minimum [Voltage] each swerve module's drive motor can run at.
