@@ -16,7 +16,7 @@ plugins {
 
     id("edu.wpi.first.GradleRIO") version "2025.3.1"
     id("com.peterabeles.gversion") version "1.10.3"
-    id("com.diffplug.spotless") version "5.0.0" // https://github.com/Mechanical-Advantage/AdvantageKit/issues/169
+    id("com.diffplug.spotless") version "7.0.2" // https://github.com/Mechanical-Advantage/AdvantageKit/issues/169
 }
 
 val javaVersion: JavaVersion = JavaVersion.VERSION_17
