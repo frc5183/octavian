@@ -10,7 +10,7 @@ import java.net.URI
 plugins {
     java
     idea
-    kotlin("jvm") version "2.1.10"
+    kotlin("jvm") version "2.2.0"
 
     id("edu.wpi.first.GradleRIO") version "2025.3.2"
     id("com.peterabeles.gversion") version "1.10.3"
