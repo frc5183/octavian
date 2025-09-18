@@ -84,7 +84,7 @@ object Controls {
                 drive,
                 xInput = { DRIVER.leftX },
                 yInput = { DRIVER.leftY },
-                rotationInput = { DRIVER.rightX },
+                rotationInput = { DRIVER.getRawAxis(3) },
                 translationCurve =
                     MultiCurve(
                         listOf(
