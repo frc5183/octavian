@@ -7,6 +7,8 @@ import org.frc5183.subsystems.elevator.ElevatorSubsystem
 /**
  * Holds the elevator at its current position by correcting for
  * it slowly falling down.
+ *
+ * This does not automatically stop, so it should either be cancelled or used alongside another command.
  */
 class HoldElevatorCommand(
     val elevator: ElevatorSubsystem,
