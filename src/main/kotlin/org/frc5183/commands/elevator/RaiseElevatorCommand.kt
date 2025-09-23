@@ -7,43 +7,22 @@ import org.frc5183.subsystems.elevator.ElevatorSubsystem
 class RaiseElevatorCommand(
     val elevator: ElevatorSubsystem,
 ) : Command() {
-    private var invalidStage: Boolean = false
+    private var finished: Boolean = false
 
     init {
         addRequirements(elevator)
     }
 
     override fun initialize() {
-        if (elevator.desiredStage >= Config.ELEVATOR_STAGES.size || elevator.currentStage >= Config.ELEVATOR_STAGES.size) {
-            invalidStage = true
+        if (elevator.desiredStage >= Config.ELEVATOR_STAGES.size) {
+            finished = true
             return
         }
+
         elevator.desiredStage += 1
+
+        finished = true
     }
 
-    override fun execute() {
-        elevator.raiseElevator(Config.ELEVATOR_MOVEMENT_SPEED)
-    }
-
-    override fun end(interrupted: Boolean) {
-        elevator.stopElevator()
-    }
-
-    override fun isFinished(): Boolean {
-        if (invalidStage) return true
-
-        if ((elevator.desiredStage >= Config.ELEVATOR_STAGES.size || elevator.currentStage >= Config.ELEVATOR_STAGES.size) &&
-            elevator.topLimitSwitch
-        ) {
-            return true
-        }
-
-        if (elevator.desiredStage != Config.ELEVATOR_STAGES.size &&
-            elevator.currentStage != Config.ELEVATOR_STAGES.size
-        ) {
-            return elevator.currentStage >= elevator.desiredStage
-        }
-
-        return false
-    }
+    override fun isFinished(): Boolean = finished
 }

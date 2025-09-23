@@ -59,7 +59,7 @@
                     {
                       "type": "named",
                       "data": {
-                        "name": "Correct Elevator"
+                        "name": "Goto Elevator"
                       }
                     },
                     {
@@ -92,47 +92,39 @@
           "data": {
             "commands": [
               {
-                "type": "parallel",
+                "type": "named",
                 "data": {
-                  "commands": [
-                    {
-                      "type": "path",
-                      "data": {
-                        "pathName": "Right Coral Intake"
-                      }
-                    },
-                    {
-                      "type": "sequential",
-                      "data": {
-                        "commands": [
-                          {
-                            "type": "named",
-                            "data": {
-                              "name": "Lower Elevator"
-                            }
-                          },
-                          {
-                            "type": "named",
-                            "data": {
-                              "name": "Lower Elevator"
-                            }
-                          },
-                          {
-                            "type": "named",
-                            "data": {
-                              "name": "Lower Elevator"
-                            }
-                          },
-                          {
-                            "type": "named",
-                            "data": {
-                              "name": "Lower Elevator"
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Goto Elevator"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Right Coral Intake"
                 }
               },
               {
@@ -199,7 +191,7 @@
                     {
                       "type": "named",
                       "data": {
-                        "name": "Correct Elevator"
+                        "name": "Goto Elevator"
                       }
                     },
                     {
@@ -232,47 +224,39 @@
           "data": {
             "commands": [
               {
-                "type": "parallel",
+                "type": "named",
                 "data": {
-                  "commands": [
-                    {
-                      "type": "path",
-                      "data": {
-                        "pathName": "Right Coral Intake 2"
-                      }
-                    },
-                    {
-                      "type": "sequential",
-                      "data": {
-                        "commands": [
-                          {
-                            "type": "named",
-                            "data": {
-                              "name": "Lower Elevator"
-                            }
-                          },
-                          {
-                            "type": "named",
-                            "data": {
-                              "name": "Lower Elevator"
-                            }
-                          },
-                          {
-                            "type": "named",
-                            "data": {
-                              "name": "Lower Elevator"
-                            }
-                          },
-                          {
-                            "type": "named",
-                            "data": {
-                              "name": "Lower Elevator"
-                            }
-                          }
-                        ]
-                      }
-                    }
-                  ]
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Goto Elevator"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Right Coral Intake 2"
                 }
               },
               {
@@ -339,7 +323,7 @@
                     {
                       "type": "named",
                       "data": {
-                        "name": "Correct Elevator"
+                        "name": "Goto Elevator"
                       }
                     },
                     {
@@ -362,6 +346,43 @@
                       }
                     }
                   ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Goto Elevator"
                 }
               }
             ]

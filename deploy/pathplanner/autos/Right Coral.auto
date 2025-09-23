@@ -5,47 +5,21 @@
     "data": {
       "commands": [
         {
-          "type": "parallel",
+          "type": "path",
           "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "Right Coral"
-                }
-              },
-              {
-                "type": "sequential",
-                "data": {
-                  "commands": [
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Raise Elevator"
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Raise Elevator"
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Raise Elevator"
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Raise Elevator"
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
+            "pathName": "Right Coral"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Raise Elevator"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Raise Elevator"
           }
         },
         {
@@ -55,7 +29,7 @@
               {
                 "type": "named",
                 "data": {
-                  "name": "Correct Elevator"
+                  "name": "Goto Elevator"
                 }
               },
               {

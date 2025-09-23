@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.399681391827616,
-        "y": 5.938493139623239
+        "x": 6.244211259599009,
+        "y": 5.873087539040626
       },
       "isLocked": false,
       "linkedName": "Left Start Point"
@@ -20,8 +20,8 @@
         "y": 5.1970034246575345
       },
       "prevControl": {
-        "x": 6.146438957302815,
-        "y": 5.685472760679671
+        "x": 6.168727023524455,
+        "y": 5.688589111628509
       },
       "nextControl": null,
       "isLocked": false,

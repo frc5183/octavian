@@ -8,7 +8,7 @@ object PhysicalConstants {
     /**
      * The [Mass] of the robot.
      */
-    val MASS: Mass = Units.Pounds.of(80.0) // todo: this was taken before the robot was fully built
+    val MASS: Mass = Units.Kilograms.of(35.0) // todo: this was taken before the robot was fully built
 
     /**
      * The [MomentOfInertia] of the robot.

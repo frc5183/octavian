@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler
 import edu.wpi.first.wpilibj2.command.InstantCommand
 import org.frc5183.commands.coral.IntakeCoralCommand
 import org.frc5183.commands.coral.ShootCoralCommand
-import org.frc5183.commands.elevator.CorrectElevatorCommand
+import org.frc5183.commands.elevator.GotoElevatorCommand
 import org.frc5183.commands.elevator.HoldElevatorCommand
 import org.frc5183.commands.elevator.LowerElevatorCommand
 import org.frc5183.commands.elevator.RaiseElevatorCommand
@@ -173,7 +173,7 @@ object Robot : LoggedRobot() {
                     "Intake Coral" to IntakeCoralCommand(coralSubsystem),
                     "Raise Elevator" to RaiseElevatorCommand(elevator),
                     "Lower Elevator" to LowerElevatorCommand(elevator),
-                    "Correct Elevator" to CorrectElevatorCommand(elevator),
+                    "Goto Elevator" to GotoElevatorCommand(elevator),
                     "Hold Elevator" to HoldElevatorCommand(elevator),
                 ),
             )
@@ -184,7 +184,7 @@ object Robot : LoggedRobot() {
                     "Intake Coral" to InstantCommand({ println("Intake Coral") }),
                     "Raise Elevator" to InstantCommand({ println("Raise Elevator") }),
                     "Lower Elevator" to InstantCommand({ println("Lower Elevator") }),
-                    "Correct Elevator" to InstantCommand({ println("Correct Elevator") }),
+                    "Goto Elevator" to InstantCommand({ println("Correct Elevator") }),
                     "Hold Elevator" to InstantCommand({ println("Hold Elevator") }),
                 ),
             )

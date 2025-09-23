@@ -148,7 +148,7 @@ object Controls {
          */
 
         OPERATOR.a().debounce(BUTTON_DEBOUNCE_TIME.toDouble(DurationUnit.SECONDS), Debouncer.DebounceType.kFalling).onTrue(
-            CorrectElevatorCommand(elevator)
+            GotoElevatorCommand(elevator)
                 .andThen(
                     ShootCoralCommand(coralSubsystem)
                         .raceWith(HoldElevatorCommand(elevator)),
