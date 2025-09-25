@@ -119,12 +119,13 @@ class ElevatorSubsystem(
      * @param stage The stage to convert.
      * @return The name of the stage, or "Unknown" if the stage is invalid
      */
-    fun stageToString(stage: Int): String = when (stage) {
-        0 -> "Bottom"
-        1 -> "Trough (L1)"
-        2 -> "L2 (First) Branch"
-        3 -> "L3 (Second) Branch"
-        4 -> "L4 (Third) Branch"
-        else -> "Unknown"
-    }
+    fun stageToString(stage: Int): String =
+        when (stage) {
+            0 -> "Bottom"
+            1 -> "Trough (L1)"
+            2 -> "L2 (First) Branch"
+            3 -> "L3 (Second) Branch"
+            4 -> "L4 (Third) Branch"
+            else -> "Unknown"
+        }
 }

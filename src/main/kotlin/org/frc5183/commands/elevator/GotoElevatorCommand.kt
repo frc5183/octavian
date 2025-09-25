@@ -25,11 +25,11 @@ class GotoElevatorCommand(
     }
 
     override fun execute() {
-        // If we're below the desired stage, move up
-        if (elevator.stageDrift.gt(Units.Degrees.zero())) elevator.raiseElevator(Config.ELEVATOR_MOVEMENT_SPEED)
-
-        // If we're above the current stage, move down
-        else if (elevator.stageDrift.lt(Units.Degrees.zero())) elevator.lowerElevator(Config.ELEVATOR_MOVEMENT_SPEED)
+        if (elevator.stageDrift.gt(Units.Degrees.zero())) { // If we're below the desired stage, move up
+            elevator.raiseElevator(Config.ELEVATOR_MOVEMENT_SPEED)
+        } else if (elevator.stageDrift.lt(Units.Degrees.zero())) { // If we're above the current stage, move down
+            elevator.lowerElevator(Config.ELEVATOR_MOVEMENT_SPEED)
+        }
     }
 
     override fun end(interrupted: Boolean) {
@@ -38,7 +38,9 @@ class GotoElevatorCommand(
 
     override fun isFinished(): Boolean {
         // If we're either at or above the max stage, and the top limit switch is hit, we're done no matter what.
-        if ((elevator.desiredStage >= Config.ELEVATOR_STAGES.size || elevator.currentStage >= Config.ELEVATOR_STAGES.size) || elevator.topLimitSwitch) {
+        if ((elevator.desiredStage >= Config.ELEVATOR_STAGES.size || elevator.currentStage >= Config.ELEVATOR_STAGES.size) ||
+            elevator.topLimitSwitch
+        ) {
             return true
         }
 
