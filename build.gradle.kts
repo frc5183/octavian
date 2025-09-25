@@ -126,6 +126,14 @@ java {
     }
 }
 
+tasks.build {
+    dependsOn(tasks.test)
+}
+
+tasks.deploy {
+    dependsOn(tasks.test)
+}
+
 tasks.compileJava {
     options.encoding = Charsets.UTF_8.name()
     // Configure string concat to always inline compile
