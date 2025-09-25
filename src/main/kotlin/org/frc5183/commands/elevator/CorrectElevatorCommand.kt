@@ -1,7 +1,6 @@
 package org.frc5183.commands.elevator
 
 import edu.wpi.first.units.Units
-import edu.wpi.first.units.measure.Angle
 import edu.wpi.first.wpilibj2.command.Command
 import org.frc5183.constants.Config
 import org.frc5183.subsystems.elevator.ElevatorSubsystem
