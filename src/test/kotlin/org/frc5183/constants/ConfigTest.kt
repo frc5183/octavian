@@ -11,7 +11,7 @@ class ConfigTest {
 
     @Test
     fun `ELEVATOR_STAGES are in ascending order`() {
-        for (i in 0 until Config.ELEVATOR_STAGES.size - 1) {
+        for (i in 0 until Config.ELEVATOR_STAGES.lastIndex) {
             assertTrue(Config.ELEVATOR_STAGES[i] < Config.ELEVATOR_STAGES[i + 1])
         }
     }

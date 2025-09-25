@@ -14,7 +14,7 @@ class RaiseElevatorCommand(
     }
 
     override fun initialize() {
-        if (elevator.desiredStage >= Config.ELEVATOR_STAGES.size) {
+        if (elevator.desiredStage >= Config.ELEVATOR_STAGES.lastIndex) {
             finished = true
             return
         }
