@@ -14,6 +14,7 @@ interface SwerveDriveIO {
         var pose by log(Pose2d())
         var velocity by log(ChassisSpeeds())
         var moduleStates by log(arrayOf<SwerveModuleState>())
+        var moduleSpeeds by log(doubleArrayOf())
     }
 
     fun updateInputs(inputs: SwerveDriveIOInputs)

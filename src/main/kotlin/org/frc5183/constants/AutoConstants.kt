@@ -4,6 +4,7 @@ import com.pathplanner.lib.config.ModuleConfig
 import com.pathplanner.lib.config.RobotConfig
 import com.pathplanner.lib.path.PathConstraints
 import edu.wpi.first.units.Units
+import edu.wpi.first.units.measure.LinearVelocity
 import org.frc5183.constants.swerve.modules.BackLeftSwerveModuleConstants
 import org.frc5183.constants.swerve.modules.BackRightSwerveModuleConstants
 import org.frc5183.constants.swerve.modules.FrontLeftSwerveModuleConstants
@@ -24,19 +25,7 @@ object AutoConstants {
             PhysicalConstants.MOI,
             ModuleConfig(
                 PhysicalConstants.WHEEL_DIAMETER.div(2.0), // radius, not diameter
-                Units.MetersPerSecond.of(
-                    Units.RadiansPerSecond
-                        .of(
-                            PhysicalConstants.DRIVE_MOTOR_TYPE.freeSpeedRadPerSec,
-                        ).`in`(Units.RotationsPerSecond)
-                        .times(60)
-                        .times(PhysicalConstants.DRIVE_GEAR_RATIO)
-                        .times(
-                            PhysicalConstants.WHEEL_DIAMETER.`in`(
-                                Units.Meters,
-                            ),
-                        ),
-                ),
+                PhysicalConstants.MODULE_MAXIMUM_SPEED,
                 PhysicalConstants.WHEEL_COF,
                 PhysicalConstants.DRIVE_MOTOR_TYPE,
                 PhysicalConstants.DRIVE_CURRENT_LIMIT,
@@ -53,10 +42,10 @@ object AutoConstants {
      */
     val PATH_CONSTRAINTS =
         PathConstraints(
-            PhysicalConstants.MAX_SPEED * SPEED_LIMIT_FACTOR,
-            PhysicalConstants.MAX_ACCELERATION * SPEED_LIMIT_FACTOR,
-            PhysicalConstants.MAX_ANGULAR_VELOCITY * SPEED_LIMIT_FACTOR,
-            PhysicalConstants.MAX_ANGULAR_ACCELERATION * SPEED_LIMIT_FACTOR,
+            Units.MetersPerSecond.of(4.0),
+            Units.MetersPerSecondPerSecond.of(4.0),
+            Units.DegreesPerSecond.of(540.0),
+            Units.DegreesPerSecondPerSecond.of(720.0),
             PhysicalConstants.OPTIMAL_VOLTAGE,
         )
 }
