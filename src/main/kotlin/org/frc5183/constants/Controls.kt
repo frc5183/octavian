@@ -200,6 +200,10 @@ object Controls {
                 Debouncer.DebounceType.kFalling,
             ).onTrue(LowerElevatorCommand(elevator))
 
+        OPERATOR.leftBumper().debounce(BUTTON_DEBOUNCE_TIME.toDouble(DurationUnit.SECONDS), Debouncer.DebounceType.kFalling).onTrue(
+            GotoElevatorCommand(elevator),
+        )
+
         val elevatorDriveCommand =
             DriveElevatorCommand(
                 elevator,
