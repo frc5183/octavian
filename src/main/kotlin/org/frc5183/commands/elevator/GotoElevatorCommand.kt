@@ -21,7 +21,7 @@ class GotoElevatorCommand(
     }
 
     override fun initialize() {
-        elevator.desiredStage = elevator.desiredStage.coerceIn(0, Config.ELEVATOR_STAGES.lastIndex)
+        elevator.desiredStage = elevator.desiredStage.coerceIn(0, Config.ELEVATOR_STAGES.lastIndex) // just in case
     }
 
     override fun execute() {
@@ -38,14 +38,14 @@ class GotoElevatorCommand(
 
     override fun isFinished(): Boolean {
         // If we're either at or above the max stage, and the top limit switch is hit, we're done no matter what.
-        if ((elevator.desiredStage >= Config.ELEVATOR_STAGES.lastIndex || elevator.currentStage >= Config.ELEVATOR_STAGES.lastIndex) ||
+        if ((elevator.desiredStage >= Config.ELEVATOR_STAGES.lastIndex || elevator.currentStage >= Config.ELEVATOR_STAGES.lastIndex) &&
             elevator.topLimitSwitch
         ) {
             return true
         }
 
         // If we're at or below the min stage, and the bottom limit switch is hit, we're done no matter what.
-        if ((elevator.desiredStage <= 0 || elevator.currentStage <= 0) || elevator.bottomLimitSwitch) {
+        if ((elevator.desiredStage <= 0 || elevator.currentStage <= 0) && elevator.bottomLimitSwitch) {
             return true
         }
 
