@@ -8,7 +8,7 @@ object PhysicalConstants {
     /**
      * The [Mass] of the robot.
      */
-    val MASS: Mass =
+    val MASS: Mass = Units.Pounds.of(130.0)
 
     /**
      * The [MomentOfInertia] of the robot.
@@ -90,27 +90,27 @@ object PhysicalConstants {
     /**
      * The maximum [LinearVelocity] of the robot.
      */
-    val MAX_SPEED: LinearVelocity =
+    val MAX_SPEED: LinearVelocity = Units.MetersPerSecond.of(5.17)
 
     /**
      * The maximum [LinearVelocity] of each swerve module.
      */
-    val MODULE_MAXIMUM_SPEED: LinearVelocity =
+    val MODULE_MAXIMUM_SPEED: LinearVelocity = Units.MetersPerSecond.of(5.22)
 
     /**
      * The maximum [LinearAcceleration] of the robot.
      */
-    val MAX_ACCELERATION: LinearAcceleration =
+    val MAX_ACCELERATION: LinearAcceleration = Units.MetersPerSecondPerSecond.of(1.7233)
 
     /**
      * The maximum [AngularVelocity] of the robot.
      */
-    val MAX_ANGULAR_VELOCITY: AngularVelocity =
+    val MAX_ANGULAR_VELOCITY: AngularVelocity = Units.RadiansPerSecond.of(8.84)
 
     /**
      * The maximum [AngularAcceleration] of the robot.
      */
-    val MAX_ANGULAR_ACCELERATION: AngularAcceleration =
+    val MAX_ANGULAR_ACCELERATION: AngularAcceleration = Units.RadiansPerSecondPerSecond.of(2.9467)
 
     // </editor-fold>
 }

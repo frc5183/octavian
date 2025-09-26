@@ -44,8 +44,8 @@ object AutoConstants {
         PathConstraints(
             Units.MetersPerSecond.of(4.0),
             Units.MetersPerSecondPerSecond.of(4.0),
-            Units.DegreesPerSecond.of(540.0),
-            Units.DegreesPerSecondPerSecond.of(720.0),
+            Units.DegreesPerSecond.of(320.0),
+            Units.DegreesPerSecondPerSecond.of(100.0),
             PhysicalConstants.OPTIMAL_VOLTAGE,
         )
 }
