@@ -50,6 +50,11 @@ class ElevatorSubsystem(
         Logger.recordOutput("Elevator/Current Stage", currentStage)
         Logger.recordOutput("Elevator/Desired Stage", desiredStage)
 
+        Logger.recordOutput("Elevator/Current Stage (Readable)", stageToString(currentStage))
+        Logger.recordOutput("Elevator/Desired Stage (Readable)", stageToString(desiredStage))
+
+        Logger.recordOutput("Elevator/Stage Drift", stageDrift.`in`(Units.Rotations))
+
         currentStage = Config.ELEVATOR_STAGES.indexOfLast { it <= io.motorEncoder }.coerceAtLeast(0)
 
         if (bottomLimitSwitch) {
@@ -65,9 +70,10 @@ class ElevatorSubsystem(
      * Runs the elevator at [speed]
      */
     fun runElevator(speed: Double) {
-        if (!bottomLimitSwitch) io.runElevator(speed)
+        if (speedMovesUp(speed) && topLimitSwitch) return
+        if (speedMovesDown(speed) && bottomLimitSwitch) return
 
-        if (speedMovesUp(speed) && bottomLimitSwitch) io.runElevator(speed)
+        io.runElevator(speed)
     }
 
     /**
@@ -105,5 +111,21 @@ class ElevatorSubsystem(
      * @param speed The speed to check.
      * @return Whether the speed will move the elevator up.
      */
-    fun speedMovesUp(speed: Double): Boolean = !speedMovesDown(speed)
+    fun speedMovesUp(speed: Double): Boolean = speed < 0 && Config.ELEVATOR_MOTOR_INVERTED || speed > 0 && !Config.ELEVATOR_MOTOR_INVERTED
+
+    /**
+     * Converts an elevator stage as an int to it's name as a string.
+     *
+     * @param stage The stage to convert.
+     * @return The name of the stage, or "Unknown" if the stage is invalid
+     */
+    fun stageToString(stage: Int): String =
+        when (stage) {
+            0 -> "Bottom"
+            1 -> "Trough (L1)"
+            2 -> "L2 (First) Branch"
+            3 -> "L3 (Second) Branch"
+            4 -> "L4 (Third) Branch"
+            else -> "Unknown"
+        }
 }

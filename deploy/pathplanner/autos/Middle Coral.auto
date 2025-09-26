@@ -5,15 +5,92 @@
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "parallel",
           "data": {
-            "pathName": "Middle Coral"
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Middle Coral"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "Raise Elevator"
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "Raise Elevator"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         {
-          "type": "named",
+          "type": "sequential",
           "data": {
-            "name": "Shoot Coral"
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Goto Elevator"
+                }
+              },
+              {
+                "type": "race",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "Hold Elevator"
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "Shoot Coral"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "sequential",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Lower Elevator"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "Goto Elevator"
+                }
+              }
+            ]
           }
         }
       ]

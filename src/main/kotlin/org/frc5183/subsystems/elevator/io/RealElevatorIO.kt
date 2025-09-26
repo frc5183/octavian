@@ -51,6 +51,6 @@ class RealElevatorIO(
     }
 
     override fun resetEncoder() {
-        motor.encoder.setPosition(0.0)
+        motor.encoder.position = 0.0
     }
 }

@@ -13,11 +13,11 @@ import kotlin.time.Duration.Companion.seconds
 object Config {
     val ELEVATOR_STAGES: List<Angle> =
         listOf(
-            Units.Rotations.of(0.0),
-            Units.Rotations.of(10.0),
-            Units.Rotations.of(20.0),
-            Units.Rotations.of(30.0),
-            Units.Rotations.of(90.0),
+            Units.Rotations.of(0.0), // Bottom
+            Units.Rotations.of(10.0), // Trough (L1)
+            Units.Rotations.of(20.0), // L2 Branch
+            Units.Rotations.of(30.0), // L3 Branch
+            Units.Rotations.of(90.0), // L4 Branch
         )
     val ELEVATOR_MAX_ALLOWED_DRIFT: Angle = Units.Degrees.of(1.0)
     const val ELEVATOR_MOTOR_INVERTED: Boolean = true

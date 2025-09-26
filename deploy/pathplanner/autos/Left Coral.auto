@@ -29,18 +29,6 @@
                       "data": {
                         "name": "Raise Elevator"
                       }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Raise Elevator"
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Raise Elevator"
-                      }
                     }
                   ]
                 }
@@ -49,32 +37,25 @@
           }
         },
         {
-          "type": "sequential",
+          "type": "named",
+          "data": {
+            "name": "Goto Elevator"
+          }
+        },
+        {
+          "type": "race",
           "data": {
             "commands": [
               {
                 "type": "named",
                 "data": {
-                  "name": "Correct Elevator"
+                  "name": "Hold Elevator"
                 }
               },
               {
-                "type": "race",
+                "type": "named",
                 "data": {
-                  "commands": [
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Shoot Coral"
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "Hold Elevator"
-                      }
-                    }
-                  ]
+                  "name": "Shoot Coral"
                 }
               }
             ]

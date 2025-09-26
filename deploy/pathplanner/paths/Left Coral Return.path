@@ -8,8 +8,8 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.6280473214608637,
-        "y": 7.1622181221290875
+        "x": 2.0625722065219465,
+        "y": 6.808773300250929
       },
       "isLocked": false,
       "linkedName": "Left Coral Intake"
@@ -20,8 +20,8 @@
         "y": 5.344634930645977
       },
       "prevControl": {
-        "x": 2.9148967545120796,
-        "y": 5.344634930645977
+        "x": 3.1311339950353476,
+        "y": 5.939496086309987
       },
       "nextControl": null,
       "isLocked": false,
