@@ -12,7 +12,7 @@ plugins {
     idea
     kotlin("jvm") version "2.1.10"
 
-    id("edu.wpi.first.GradleRIO") version "2025.3.2"
+    id("edu.wpi.first.GradleRIO") version "2026.1.1"
     id("com.peterabeles.gversion") version "1.10.3"
     id("com.diffplug.spotless") version "5.0.0" // https://github.com/Mechanical-Advantage/AdvantageKit/issues/169
 }
